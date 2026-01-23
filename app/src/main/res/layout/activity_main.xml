@@ -30,6 +30,7 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/btn_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -38,6 +39,7 @@
             <FrameLayout
                 android:layout_width="35dp"
                 android:layout_height="35dp"
+                android:background="@drawable/neon_circle"
                 android:padding="6dp">
                 <ImageView
                     android:layout_width="match_parent"
@@ -50,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="RiftWalker"
+                android:text="Cromelu"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -78,8 +80,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#162534"
-        app:itemIconTint="#FFFFFF"
-        app:itemTextColor="#FFFFFF"
+        app:itemIconTint="@color/nav_item_colors"
+        app:itemTextColor="@color/nav_item_colors"
         app:itemActiveIndicatorStyle="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_nav_menu" />

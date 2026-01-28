@@ -16,7 +16,6 @@
             android:layout_height="wrap_content"
             android:text="MON PROFIL"
             android:textColor="#FFFFFF"
-            android:layout_marginTop="24dp"
             android:textSize="18sp" />
 
         <androidx.cardview.widget.CardView
@@ -97,7 +96,7 @@
                     <TextView android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:text="GOLD III" android:textColor="#D4AF37" android:textSize="18sp" android:textStyle="bold"/>
                     <TextView android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:text="Prochain rang : Platine dans 50 paris gagnés" android:textColor="#FFFFFF" android:textSize="10sp"/>
+                        android:layout_height="wrap_content" android:text="Prochain rang : Platine dans 50 pts gagnés" android:textColor="#FFFFFF" android:textSize="10sp"/>
                 </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

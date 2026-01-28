@@ -17,7 +17,6 @@
             android:text="HISTORIQUE DES PARIS"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
-            android:layout_marginTop="8dp"
             android:layout_marginBottom="24dp" />
 
         <androidx.cardview.widget.CardView

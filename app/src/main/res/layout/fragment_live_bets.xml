@@ -137,7 +137,7 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/tvEventTitle"
+                    android:id="@+id/tvEventTitle2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Joueur (14h56)"
@@ -147,7 +147,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
-                    android:id="@+id/tvVoteStatus"
+                    android:id="@+id/tvVoteStatus2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Voté pour XadXXX"
@@ -156,16 +156,16 @@
                     app:layout_constraintEnd_toEndOf="parent" />
 
                 <LinearLayout
-                    android:id="@+id/layoutLogos"
+                    android:id="@+id/layoutLogos2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/tvEventTitle">
+                    app:layout_constraintTop_toBottomOf="@id/tvEventTitle2">
 
                     <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/imgTeamA"
+                        android:id="@+id/imgTeamA2"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:scaleType="centerCrop"
@@ -174,15 +174,15 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/layoutButtons"
+                    android:id="@+id/layoutButtons2"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginTop="20dp"
                     android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/layoutLogos">
+                    app:layout_constraintTop_toBottomOf="@id/layoutLogos2">
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btnBetA"
+                        android:id="@+id/btnBetA2"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginEnd="4dp"
@@ -195,7 +195,7 @@
                         android:textStyle="bold" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btnBetB"
+                        android:id="@+id/btnBetB2"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="4dp"

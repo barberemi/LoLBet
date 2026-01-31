@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         // Afficher le premier fragment par défaut
         if (savedInstanceState == null) {
-            loadFragment(CompetitionFragment())
+            loadFragment(AccountFragment())
         }
 
         // Ecouter les clics sur le menu

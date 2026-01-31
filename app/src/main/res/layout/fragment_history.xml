@@ -188,7 +188,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
                         <TextView
-                            android:id="@+id/tvVoteStatus"
+                            android:id="@+id/tvVoteStatus2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Voté pour Vitality"
@@ -284,7 +284,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
                         <TextView
-                            android:id="@+id/tvVoteStatus"
+                            android:id="@+id/tvVoteStatus3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Voté pour XadXXX"

@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="🟢 2,000 RP"
+            android:text="🟢 2,000 pts"
             android:textColor="#A0A0A0"
             android:textSize="13sp" />
     </LinearLayout>

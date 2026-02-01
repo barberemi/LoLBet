@@ -12,7 +12,9 @@
         android:layout_height="wrap_content"
         android:text="RECHERCHER UN JOUEUR"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.1"
         android:layout_marginBottom="16dp" />
 
     <androidx.appcompat.widget.SearchView

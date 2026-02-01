@@ -115,162 +115,281 @@
                     android:layout_marginTop="32dp"
                     android:layout_marginBottom="16dp" />
 
-                <androidx.cardview.widget.CardView
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardBackgroundColor="#121B26"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="0dp"
-                    android:layout_marginBottom="12dp">
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="#131F2C"
+                    app:cardCornerRadius="16dp"
+                    app:strokeColor="#2A394A"
+                    app:strokeWidth="1dp"
+                    app:cardElevation="4dp">
 
-                    <LinearLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:padding="12dp">
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="20dp">
+                        <LinearLayout
+                            android:id="@+id/areaVoteA"
+                            android:layout_width="0dp"
+                            android:layout_height="80dp"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/center_vs"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                            <LinearLayout
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                app:srcCompat="@drawable/g2_esport" />
+
+                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_toStartOf="@id/center_btn"
-                                android:layout_marginEnd="20dp"
-                                android:gravity="center_vertical">
-                                <TextView android:text="BOMB" android:textColor="#FFF" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="8dp"/>
-                                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_gallery"/>
-                            </LinearLayout>
+                                android:text="G2 ESPORTS"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
 
-                            <FrameLayout
-                                android:id="@+id/center_btn"
-                                android:layout_width="50dp"
-                                android:layout_height="35dp"
-                                android:background="#1E2833"
-                                android:layout_centerInParent="true">
-                                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@android:drawable/ic_menu_view" android:layout_gravity="center" app:tint="#888888"/>
-                            </FrameLayout>
+                        <FrameLayout
+                            android:id="@+id/center_vs"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:background="@drawable/bg_center_vs"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                            <LinearLayout
+                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_toEndOf="@id/center_btn"
-                                android:layout_marginStart="20dp"
-                                android:gravity="center_vertical">
-                                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_gallery"/>
-                                <TextView android:text="DEER" android:textColor="#FFF" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
-                            </LinearLayout>
-                        </RelativeLayout>
+                                android:layout_gravity="center"
+                                android:text="VS"
+                                android:textColor="#00FFFF" />
+                        </FrameLayout>
 
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-                <androidx.cardview.widget.CardView
+                        <LinearLayout
+                            android:id="@+id/areaVoteB"
+                            android:layout_width="0dp"
+                            android:layout_height="80dp"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/center_vs"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                app:srcCompat="@drawable/fnatic" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="FNC ESPORTS"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardBackgroundColor="#121B26"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="0dp"
-                    android:layout_marginBottom="12dp">
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="#131F2C"
+                    app:cardCornerRadius="16dp"
+                    app:strokeColor="#2A394A"
+                    app:strokeWidth="1dp"
+                    app:cardElevation="4dp">
 
-                    <LinearLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:padding="12dp">
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="20dp">
+                        <LinearLayout
+                            android:id="@+id/areaVoteA2"
+                            android:layout_width="0dp"
+                            android:layout_height="80dp"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/center_vs2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                            <LinearLayout
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                app:srcCompat="@drawable/g2_esport" />
+
+                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_toStartOf="@id/center_btn2"
-                                android:layout_marginEnd="20dp"
-                                android:gravity="center_vertical">
-                                <TextView android:text="BOMB" android:textColor="#FFF" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="8dp"/>
-                                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_gallery"/>
-                            </LinearLayout>
+                                android:text="G2 ESPORTS"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
 
-                            <FrameLayout
-                                android:id="@+id/center_btn2"
-                                android:layout_width="50dp"
-                                android:layout_height="35dp"
-                                android:background="#1E2833"
-                                android:layout_centerInParent="true">
-                                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@android:drawable/ic_menu_view" android:layout_gravity="center" app:tint="#888888"/>
-                            </FrameLayout>
+                        <FrameLayout
+                            android:id="@+id/center_vs2"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:background="@drawable/bg_center_vs"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                            <LinearLayout
+                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_toEndOf="@id/center_btn2"
-                                android:layout_marginStart="20dp"
-                                android:gravity="center_vertical">
-                                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_gallery"/>
-                                <TextView android:text="DEER" android:textColor="#FFF" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
-                            </LinearLayout>
-                        </RelativeLayout>
+                                android:layout_gravity="center"
+                                android:text="VS"
+                                android:textColor="#00FFFF" />
+                        </FrameLayout>
 
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-                <androidx.cardview.widget.CardView
+                        <LinearLayout
+                            android:id="@+id/areaVoteB2"
+                            android:layout_width="0dp"
+                            android:layout_height="80dp"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/center_vs2"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                app:srcCompat="@drawable/fnatic" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="FNC ESPORTS"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardBackgroundColor="#121B26"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="0dp"
-                    android:layout_marginBottom="12dp">
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="#131F2C"
+                    app:cardCornerRadius="16dp"
+                    app:strokeColor="#2A394A"
+                    app:strokeWidth="1dp"
+                    app:cardElevation="4dp">
 
-                    <LinearLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:padding="12dp">
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="20dp">
+                        <LinearLayout
+                            android:id="@+id/areaVoteA3"
+                            android:layout_width="0dp"
+                            android:layout_height="80dp"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/center_vs3"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                            <LinearLayout
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                app:srcCompat="@drawable/g2_esport" />
+
+                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_toStartOf="@id/center_btn3"
-                                android:layout_marginEnd="20dp"
-                                android:gravity="center_vertical">
-                                <TextView android:text="BOMB" android:textColor="#FFF" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="8dp"/>
-                                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_gallery"/>
-                            </LinearLayout>
+                                android:text="G2 ESPORTS"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
 
-                            <FrameLayout
-                                android:id="@+id/center_btn3"
-                                android:layout_width="50dp"
-                                android:layout_height="35dp"
-                                android:background="#1E2833"
-                                android:layout_centerInParent="true">
-                                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@android:drawable/ic_menu_view" android:layout_gravity="center" app:tint="#888888"/>
-                            </FrameLayout>
+                        <FrameLayout
+                            android:id="@+id/center_vs3"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:background="@drawable/bg_center_vs"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                            <LinearLayout
+                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_toEndOf="@id/center_btn3"
-                                android:layout_marginStart="20dp"
-                                android:gravity="center_vertical">
-                                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_gallery"/>
-                                <TextView android:text="DEER" android:textColor="#FFF" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
-                            </LinearLayout>
-                        </RelativeLayout>
+                                android:layout_gravity="center"
+                                android:text="VS"
+                                android:textColor="#00FFFF" />
+                        </FrameLayout>
 
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                        <LinearLayout
+                            android:id="@+id/areaVoteB3"
+                            android:layout_width="0dp"
+                            android:layout_height="80dp"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/center_vs3"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                app:srcCompat="@drawable/fnatic" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="FNC ESPORTS"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -281,57 +400,97 @@
                     android:layout_marginTop="24dp"
                     android:layout_marginBottom="16dp" />
 
-                <androidx.cardview.widget.CardView
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardBackgroundColor="#121B26"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="0dp">
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="#131F2C"
+                    app:cardCornerRadius="16dp"
+                    app:strokeColor="#2A394A"
+                    app:strokeWidth="1dp"
+                    app:cardElevation="4dp">
 
-                    <LinearLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:padding="12dp">
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="20dp">
+                        <LinearLayout
+                            android:id="@+id/areaVoteA4"
+                            android:layout_width="0dp"
+                            android:layout_height="80dp"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/center_vs4"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                            <LinearLayout
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                app:srcCompat="@drawable/g2_esport" />
+
+                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_toStartOf="@id/center_btn4"
-                                android:layout_marginEnd="20dp"
-                                android:gravity="center_vertical">
-                                <TextView android:text="T1" android:textColor="#FFF" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="8dp"/>
-                                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_gallery"/>
-                            </LinearLayout>
+                                android:text="G2 ESPORTS"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
 
-                            <FrameLayout
-                                android:id="@+id/center_btn4"
-                                android:layout_width="50dp"
-                                android:layout_height="35dp"
-                                android:background="#1E2833"
-                                android:layout_centerInParent="true">
-                                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@android:drawable/ic_menu_view" android:layout_gravity="center" app:tint="#888888"/>
-                            </FrameLayout>
+                        <FrameLayout
+                            android:id="@+id/center_vs4"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:background="@drawable/bg_center_vs"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                            <LinearLayout
+                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_toEndOf="@id/center_btn4"
-                                android:layout_marginStart="20dp"
-                                android:gravity="center_vertical">
-                                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_gallery"/>
-                                <TextView android:text="HLE" android:textColor="#FFF" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
-                            </LinearLayout>
-                        </RelativeLayout>
+                                android:layout_gravity="center"
+                                android:text="VS"
+                                android:textColor="#00FFFF" />
+                        </FrameLayout>
 
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                        <LinearLayout
+                            android:id="@+id/areaVoteB4"
+                            android:layout_width="0dp"
+                            android:layout_height="80dp"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/center_vs4"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                app:srcCompat="@drawable/fnatic" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="FNC ESPORTS"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

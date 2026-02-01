@@ -52,4 +52,9 @@ dependencies {
 
     // Pour la gestion des Fragments
     implementation("androidx.fragment:fragment-ktx:1.6.2")
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+
+    implementation("androidx.navigation:navigation-fragment-ktx:2.8.0")
+    implementation("androidx.navigation:navigation-ui-ktx:2.8.0")
 }

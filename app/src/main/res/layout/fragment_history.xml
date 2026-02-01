@@ -16,16 +16,20 @@
             android:layout_height="wrap_content"
             android:text="HISTORIQUE DES PARIS"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:layout_marginBottom="24dp" />
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="16dp" />
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            app:cardBackgroundColor="#1A232E"
-            app:cardCornerRadius="6dp"
-            app:cardElevation="0dp">
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#131F2C"
+            app:cardCornerRadius="16dp"
+            app:strokeColor="#2A394A"
+            app:strokeWidth="1dp"
+            app:cardElevation="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -114,15 +118,17 @@
                         android:textStyle="bold"/>
                 </LinearLayout>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            app:cardBackgroundColor="#1A232E"
-            app:cardCornerRadius="6dp"
-            app:cardElevation="0dp">
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#131F2C"
+            app:cardCornerRadius="16dp"
+            app:strokeColor="#2A394A"
+            app:strokeWidth="1dp"
+            app:cardElevation="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -208,15 +214,17 @@
                         android:textStyle="bold"/>
                 </LinearLayout>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            app:cardBackgroundColor="#1A232E"
-            app:cardCornerRadius="6dp"
-            app:cardElevation="0dp">
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#131F2C"
+            app:cardCornerRadius="16dp"
+            app:strokeColor="#2A394A"
+            app:strokeWidth="1dp"
+            app:cardElevation="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -305,7 +313,7 @@
                         android:textStyle="bold"/>
                 </LinearLayout>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 </ScrollView>

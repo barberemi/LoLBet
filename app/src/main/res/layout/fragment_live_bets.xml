@@ -3,29 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0B1621"
-    android:padding="16dp">
+    android:background="#0B1621">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="PARIS EN COURS"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:layout_marginBottom="24dp" />
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="16dp" />
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            app:cardBackgroundColor="#1A232E"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#131F2C"
+            app:cardCornerRadius="16dp"
+            app:strokeColor="#2A394A"
+            app:strokeWidth="1dp"
+            app:cardElevation="8dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -37,58 +41,66 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="LEC (23h24)"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    android:textColor="#99FFFFFF"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tvVoteStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Voté pour G2 ESPORTS"
+                    android:text="● Voté pour G2"
                     android:textColor="#FFEB3B"
                     android:textSize="12sp"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <LinearLayout
                     android:id="@+id/layoutLogos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="12dp"
                     android:gravity="center"
                     android:orientation="horizontal"
                     app:layout_constraintTop_toBottomOf="@id/tvEventTitle">
 
-                    <ImageView
+                    <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imgTeamA"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:scaleType="centerInside"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:padding="8dp"
+                        android:background="#1A232E"
+                        app:shapeAppearanceOverlay="@style/CircleImageStyle"
+                        app:strokeColor="#4CAF50"
+                        app:strokeWidth="2dp"
                         app:srcCompat="@drawable/g2_esport" />
 
                     <TextView
-                        android:id="@+id/tvVs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="24dp"
+                        android:layout_marginHorizontal="20dp"
                         android:text="VS"
                         android:textColor="#FFFFFF"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textSize="22sp" />
 
-                    <ImageView
+                    <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imgTeamB"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:scaleType="centerInside"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:padding="8dp"
+                        android:background="#1A232E"
+                        app:shapeAppearanceOverlay="@style/CircleImageStyle"
+                        app:strokeColor="#F44336"
+                        app:strokeWidth="2dp"
                         app:srcCompat="@drawable/fnatic" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/layoutButtons"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="55dp"
                     android:layout_marginTop="20dp"
                     android:orientation="horizontal"
                     app:layout_constraintTop_toBottomOf="@id/layoutLogos">
@@ -97,39 +109,37 @@
                         android:id="@+id/btnBetA"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_marginEnd="4dp"
+                        android:layout_marginEnd="6dp"
                         android:layout_weight="1"
                         android:background="@drawable/bg_bet_green"
-                        android:gravity="center"
-                        android:text="G2 ESPORTS\n170 votes"
-                        android:textAllCaps="false"
+                        android:text="G2 ESPORTS\n170 VOTES"
                         android:textColor="#FFFFFF"
+                        android:textSize="12sp"
                         android:textStyle="bold" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btnBetB"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="4dp"
+                        android:layout_marginStart="6dp"
                         android:layout_weight="1"
                         android:background="@drawable/bg_bet_red"
-                        android:gravity="center"
-                        android:text="FNC ESPORTS\n250 votes"
-                        android:textAllCaps="false"
+                        android:text="FNC ESPORTS\n250 VOTES"
                         android:textColor="#FFFFFF"
+                        android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            app:cardBackgroundColor="#1A232E"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
+            app:cardBackgroundColor="#131F2C"
+            app:cardCornerRadius="16dp"
+            app:strokeColor="#2A394A"
+            app:strokeWidth="1dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -137,78 +147,70 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/tvEventTitle2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Joueur (14h56)"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    android:text="XaDXXX (14h56)"
+                    android:textColor="#99FFFFFF"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tvVoteStatus2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Voté pour XadXXX"
+                    android:text="● Voté pour gagner"
                     android:textColor="#FFEB3B"
                     android:textSize="12sp"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imgPlayer"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="16dp"
+                    android:padding="3dp"
+                    android:scaleType="centerCrop"
+                    app:strokeColor="#FFFFFF"
+                    app:strokeWidth="3dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/CircleImageStyle"
+                    app:srcCompat="@drawable/xadxxx" />
 
                 <LinearLayout
-                    android:id="@+id/layoutLogos2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/tvEventTitle2">
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/imgTeamA2"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/xadxxx"
-                        app:shapeAppearanceOverlay="@style/CircleImageStyle" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/layoutButtons2"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="55dp"
                     android:layout_marginTop="20dp"
                     android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/layoutLogos2">
+                    app:layout_constraintTop_toBottomOf="@id/imgPlayer">
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btnBetA2"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_marginEnd="4dp"
+                        android:layout_marginEnd="6dp"
                         android:layout_weight="1"
                         android:background="@drawable/bg_bet_green"
-                        android:gravity="center"
-                        android:text="Gagner prochaine partie\n2 votes"
-                        android:textAllCaps="false"
+                        android:text="GAGNER\n2 VOTES"
                         android:textColor="#FFFFFF"
                         android:textStyle="bold" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btnBetB2"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="4dp"
+                        android:layout_marginStart="6dp"
                         android:layout_weight="1"
                         android:background="@drawable/bg_bet_red"
-                        android:gravity="center"
-                        android:text="Perdre prochaine partie\n4 votes"
-                        android:textAllCaps="false"
+                        android:text="PERDRE\n4 VOTES"
                         android:textColor="#FFFFFF"
                         android:textStyle="bold" />
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
+
     </LinearLayout>
 </ScrollView>

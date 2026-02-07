@@ -11,17 +11,16 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/create_account"
-        android:textSize="28sp"
+        android:text="@string/title_create_account"
+        android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
-        android:layout_marginTop="32dp"
         android:layout_marginBottom="8dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rejoignez-nous en quelques secondes"
+        android:text="@string/sub_title_create_account"
         android:alpha="0.6"
         android:textColor="#FFFFFF"
         android:layout_marginBottom="32dp"/>
@@ -31,13 +30,12 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
+        android:hint="@string/placeholder_email"
         android:textColorHint="#BBFFFFFF"
         app:hintTextColor="#FFFFFF"
         app:startIconDrawable="@android:drawable/ic_dialog_email"
         app:startIconTint="#FFFFFF"
         app:boxStrokeColor="#FFFFFF"
-
         app:boxStrokeWidth="2dp">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -55,7 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Mot de passe"
+        android:hint="@string/placeholder_password"
         android:textColorHint="#BBFFFFFF"
         app:hintTextColor="#FFFFFF"
         app:passwordToggleEnabled="true"
@@ -80,7 +78,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
         android:backgroundTint="#D13639"
-        android:text="S'inscrire"
+        android:text="@string/btn_create_account"
         android:textColor="#FFFFFF"
         app:cornerRadius="8dp" />
 
@@ -92,16 +90,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Déjà un compte ?"
+            android:text="@string/txt_already_account"
             android:textColor="#FFFFFF" />
         <TextView
             android:id="@+id/tvBackToLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Connectez-vous"
+            android:text="@string/txt_login"
             android:textColor="#FFEB3B"
             android:layout_marginStart="5dp"
-            android:textStyle="bold"
             />
     </LinearLayout>
 

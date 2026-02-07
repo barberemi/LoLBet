@@ -4,17 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.lolbet.databinding.FragmentLoginBinding
-import com.example.lolbet.viewmodel.AuthViewModel
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
     // On utilise le View Binding pour éviter les findViewById
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
-    private val authViewModel: AuthViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

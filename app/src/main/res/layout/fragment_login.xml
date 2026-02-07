@@ -11,18 +11,74 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bienvenue"
+        android:text="@string/title_login"
         android:textSize="24sp"
         android:textColor="#FFFFFF"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sub_title_login"
+        android:alpha="0.6"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="32dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilRegisterEmail"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/placeholder_email"
+        android:textColorHint="#BBFFFFFF"
+        app:hintTextColor="#FFFFFF"
+        app:startIconDrawable="@android:drawable/ic_dialog_email"
+        app:startIconTint="#FFFFFF"
+        app:boxStrokeColor="#FFFFFF"
+        app:boxStrokeWidth="2dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etRegisterEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1A232E"
+            android:inputType="textEmailAddress"
+            android:textColor="#FFFFFF" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilRegisterPassword"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/placeholder_password"
+        android:textColorHint="#BBFFFFFF"
+        app:hintTextColor="#FFFFFF"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="#FFFFFF"
+        app:startIconDrawable="@android:drawable/ic_lock_idle_lock"
+        app:startIconTint="#FFFFFF"
+        app:boxStrokeColor="#FFFFFF"
+        app:boxStrokeWidth="2dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etRegisterPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1A232E"
+            android:inputType="textPassword"
+            android:textColor="#FFFFFF" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="Se connecter"
+        android:text="@string/btn_login"
         android:backgroundTint="#D13639"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         app:cornerRadius="8dp"/>
 
     <LinearLayout
@@ -33,13 +89,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pas encore de compte ?"
+            android:text="@string/txt_no_account"
             android:textColor="#FFFFFF" />
         <TextView
             android:id="@+id/tvGoToRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Inscrivez-vous"
+            android:text="@string/txt_create_account"
             android:textColor="#FFEB3B"
             android:layout_marginStart="5dp"
             />

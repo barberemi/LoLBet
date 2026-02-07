@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0B1621"> <RelativeLayout
+    android:background="#0B1621">
+
+    <RelativeLayout
     android:id="@+id/top_header"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -49,20 +51,22 @@
             </FrameLayout>
 
             <TextView
+                android:id="@+id/tvUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Cromelu"
+                android:text="tvUsername"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <TextView
+            android:id="@+id/tvUserrps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="🟢 2,000 pts"
+            android:text="tvUserrps"
             android:textColor="#A0A0A0"
             android:textSize="13sp" />
     </LinearLayout>

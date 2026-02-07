@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PARIS EN COURS"
+            android:text="@string/title_onlines_bets"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -168,13 +168,13 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/imgPlayer"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:layout_marginTop="16dp"
                     android:padding="3dp"
                     android:scaleType="centerCrop"
                     app:strokeColor="#FFFFFF"
-                    app:strokeWidth="3dp"
+                    app:strokeWidth="2dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"

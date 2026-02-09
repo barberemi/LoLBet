@@ -29,12 +29,19 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         userViewModel.userData.observe(viewLifecycleOwner) { user ->
+            val rank = userViewModel.getRank(user.rps)
+
             binding.tvUsername.text = user.name
-            binding.tvUserrank.text = user.rank
             binding.tvUsernbBetWin.text = user.nbBetWin.toString()
             binding.tvUsernbBetLost.text = user.nbBetLost.toString()
             binding.tvUserlevel.text = getString(R.string.txt_level, user.level)
             binding.tvUserrps.text = getString(R.string.txt_rps, user.rps)
+            // rank
+            binding.tvUserrank.text = rank?.name ?: "Unranked"
+            rank?.let {
+                val colorInt = ContextCompat.getColor(requireContext(), it.color)
+                binding.tvUserrank.setTextColor(colorInt)
+            }
             // winrate
             val winrate = user.nbBetWin + user.nbBetLost
             if (winrate == 0) {

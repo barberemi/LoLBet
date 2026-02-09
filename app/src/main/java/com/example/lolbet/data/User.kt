@@ -10,6 +10,5 @@ data class User(
     val nbBetLost: Int,
     val rps: Int,
     val level: Int,
-    val rank: String,
     val bets: List<Bet> = emptyList(),
 )

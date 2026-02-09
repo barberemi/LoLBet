@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lolbet.data.Player
 import com.example.lolbet.R
-import kotlin.collections.get
 
 class PlayerAdapter(
     private var players: List<Player>
@@ -34,11 +33,11 @@ class PlayerAdapter(
         holder.tvName.text = player.name
         holder.tvRank.text = player.rank
         holder.tvId.text = holder.itemView.context.getString(
-            R.string.player_id,
+            R.string.txt_player_id,
             player.id
         )
         holder.tvLps.text = holder.itemView.context.getString(
-            R.string.player_lps,
+            R.string.txt_player_lps,
             player.lps
         )
         if (!player.hasOnlineBet) {

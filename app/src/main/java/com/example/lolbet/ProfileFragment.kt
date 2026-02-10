@@ -41,6 +41,15 @@ class ProfileFragment : Fragment() {
             rank?.let {
                 val colorInt = ContextCompat.getColor(requireContext(), it.color)
                 binding.tvUserrank.setTextColor(colorInt)
+                binding.tvUserstarRank.setColorFilter(colorInt)
+            }
+            // next rank
+            val nextRank = userViewModel.getRpsNextRank(user.rps)
+            if (nextRank == null) {
+                binding.tvUsernextRank.visibility = View.GONE
+            } else {
+                binding.tvUsernextRank.visibility = View.VISIBLE
+                binding.tvUsernextRank.text = getString(R.string.txt_rps_next_rank, nextRank.minRps)
             }
             // winrate
             val winrate = user.nbBetWin + user.nbBetLost

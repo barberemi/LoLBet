@@ -131,10 +131,10 @@
                     android:paddingTop="10dp">
 
                     <ImageView
+                        android:id="@+id/tvUserstarRank"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@android:drawable/btn_star_big_on"
-                        app:tint="#D4AF37" />
+                        android:src="@android:drawable/btn_star_big_on" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -151,9 +151,10 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tvUsernextRank"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Prochain rang : Platine dans 50 pts gagnés"
+                            android:text="@string/txt_rps_next_rank"
                             android:textColor="#FFFFFF"
                             android:textSize="11sp" />
                     </LinearLayout>

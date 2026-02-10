@@ -93,9 +93,22 @@ class UserViewModel: ViewModel() {
     fun getRank(rps: Int): Rank? {
         // on garde seulement les ranks dont minRps <= rps
         val eligibleRanks = ranks.filter { it.minRps <= rps }
+
         // si aucun éligible, on retourne le tout premier rank
         if (eligibleRanks.isEmpty()) return ranks.minByOrNull { it.minRps }
+
         // on prend celui avec le minRps le plus élevé
         return eligibleRanks.maxByOrNull { it.minRps }
+    }
+
+    fun getRpsNextRank(rps: Int): Rank? {
+        // rang actuel en fonction du rps
+        val currentRank = getRank(rps) ?: return ranks.minByOrNull { it.order }
+
+        // rang juste après
+        val nextOrder = currentRank.order + 1
+
+        // si pas de rang avec cet order (donc on est au max), on renvoie null
+        return ranks.firstOrNull { it.order == nextOrder }
     }
 }

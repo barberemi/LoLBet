@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">LoLBet</string>
     <!-- TITLES -->
-    <string name="title_create_account">Créer un compte</string>
-    <string name="title_login">Bienvenue</string>
+    <string name="title_create_account">CREER UN COMPTE</string>
+    <string name="title_login">BIENVENUE</string>
     <string name="title_search_player">RECHERCHER UN JOUEUR</string>
     <string name="title_my_account">MON PROFIL</string>
     <!-- SUB TITLES -->
@@ -26,6 +26,7 @@
     <string name="txt_bet_online">Pari en cours…</string>
     <string name="txt_player_id">#%1$d</string>
     <string name="txt_player_lps">(%1$d LP)</string>
+    <string name="txt_rps_next_rank">Prochain rang à %1$d pts</string>
     <!-- BOUTONS -->
     <string name="btn_create_account">S\'inscrire</string>
     <string name="btn_login">Se connecter</string>

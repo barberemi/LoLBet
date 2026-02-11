@@ -15,11 +15,11 @@
     <string name="txt_create_account">Inscrivez-vous</string>
     <string name="txt_actual_rank">RANG ACTUEL</string>
     <string name="txt_game_statistics">STATISTIQUES DE JEU</string>
-    <string name="txt_win">Gagnés</string>
-    <string name="txt_lose">Perdus</string>
+    <string name="txt_wins">Gagnés</string>
+    <string name="txt_loses">Perdus</string>
     <string name="txt_winrate">Taux de victoire</string>
     <string name="txt_badges">BADGES ACQUIS</string>
-    <string name="title_onlines_bets">PARIS EN COURS</string>
+    <string name="title_live_bets">PARIS EN COURS</string>
     <string name="title_bets_history">HISTORIQUE DES PARIS</string>
     <string name="txt_level">Niveau: %1$d</string>
     <string name="txt_rps">🟢 %1$d pts</string>
@@ -27,6 +27,10 @@
     <string name="txt_player_id">#%1$d</string>
     <string name="txt_player_lps">(%1$d LP)</string>
     <string name="txt_rps_next_rank">Prochain rang à %1$d pts</string>
+    <string name="txt_no_live_bets">Aucun pari en cours</string>
+    <string name="txt_bet_for">● Voté %1$s</string>
+    <string name="txt_win">Gagner</string>
+    <string name="txt_lose">Perte</string>
     <!-- BOUTONS -->
     <string name="btn_create_account">S\'inscrire</string>
     <string name="btn_login">Se connecter</string>

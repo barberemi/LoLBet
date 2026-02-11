@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.example.lolbet.data.BetStatus
+import com.example.lolbet.data.BetStatusEnum
 import com.example.lolbet.databinding.FragmentProfileBinding
 import com.example.lolbet.viewmodel.UserViewModel
 
@@ -65,11 +65,11 @@ class ProfileFragment : Fragment() {
             val arrowResId: Int
             val colorResId: Int
             when (lastNonPendingBet?.status) {
-                BetStatus.WON -> {
+                BetStatusEnum.WON -> {
                     arrowResId = android.R.drawable.arrow_up_float
                     colorResId = android.R.color.holo_green_light   // ou une couleur de ton colors.xml
                 }
-                BetStatus.LOST -> {
+                BetStatusEnum.LOST -> {
                     arrowResId = android.R.drawable.arrow_down_float
                     colorResId = android.R.color.holo_red_light     // ou une couleur de ton colors.xml
                 }

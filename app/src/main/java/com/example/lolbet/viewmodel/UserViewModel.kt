@@ -4,7 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.lolbet.R
 import com.example.lolbet.data.Bet
-import com.example.lolbet.data.BetStatus
+import com.example.lolbet.data.BetForEnum
+import com.example.lolbet.data.BetStatusEnum
 import com.example.lolbet.data.Rank
 import com.example.lolbet.data.User
 import java.text.SimpleDateFormat
@@ -68,18 +69,63 @@ class UserViewModel: ViewModel() {
             rps = 1500,
             level = 5,
             bets = listOf(
-                Bet(1, "G2 ESPORT", "FNATICS", null, 100, 44, BetStatus.PENDING, "06/02/2026 12:00:00"),
-                Bet(2, null, null, "XadXXX", 200, 23, BetStatus.PENDING, "07/02/2026 12:00:00"),
-                Bet(3, "G2 ESPORT", "FNATICS", null, 300, 58, BetStatus.PENDING, "08/02/2026 12:00:00"),
-                Bet(4, "G2 ESPORT", "FNATICS", null, 10, 422, BetStatus.WON, "06/02/2026 15:00:00"),
-                Bet(5, null, null, "XadXXX", 55, 888, BetStatus.LOST, "06/02/2026 17:00:00"),
+                Bet(1,
+                    "G2 ESPORT",
+                    "FNATICS",
+                    null,
+                    100,
+                    44,
+                    BetStatusEnum.PENDING,
+                    "06/02/2026 12:00:00",
+                    BetForEnum.TEAM_A_WINNING
+                ),
+                Bet(2,
+                    null,
+                    null,
+                    "XadXXX",
+                    200,
+                    23,
+                    BetStatusEnum.PENDING,
+                    "07/02/2026 12:00:00",
+                    BetForEnum.PLAYER_WINNING
+                ),
+                Bet(3,
+                    "G2 ESPORT",
+                    "FNATICS",
+                    null,
+                    300,
+                    58,
+                    BetStatusEnum.PENDING,
+                    "08/02/2026 12:00:00",
+                    BetForEnum.TEAM_B_WINNING
+                ),
+                Bet(4,
+                    "G2 ESPORT",
+                    "FNATICS",
+                    null,
+                    10,
+                    422,
+                    BetStatusEnum.WON,
+                    "06/02/2026 15:00:00",
+                    BetForEnum.TEAM_A_WINNING
+                ),
+                Bet(5,
+                    null,
+                    null,
+                    "XadXXX",
+                    55,
+                    888,
+                    BetStatusEnum.LOST,
+                    "06/02/2026 17:00:00",
+                    BetForEnum.PLAYER_LOSING
+                ),
             )
         )
     }
 
     fun getLastNonPendingBet(user: User): Bet? {
         return user.bets
-            .filter { it.status != BetStatus.PENDING }
+            .filter { it.status != BetStatusEnum.PENDING }
             .maxByOrNull { bet ->
                 try {
                     val date: Date = betDateFormatter.parse(bet.date) ?: Date(0)

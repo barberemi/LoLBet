@@ -5,8 +5,9 @@ data class Bet(
     val teamA: String?,
     val teamB: String?,
     val player: String?, // Player ?
-    val wins: Int,
-    val loses: Int,
-    val status: BetStatus,
-    val date: String
+    val nbWinningBets: Int,
+    val nbLosingBets: Int,
+    val status: BetStatusEnum,
+    val date: String,
+    val hasBetFor: BetForEnum = BetForEnum.PLAYER_LOSING,
 )

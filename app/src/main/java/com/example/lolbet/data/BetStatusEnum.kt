@@ -1,6 +1,6 @@
 package com.example.lolbet.data
 
-enum class BetStatus {
+enum class BetStatusEnum {
     PENDING,
     WON,
     LOST

@@ -1,5 +1,6 @@
 package com.example.lolbet.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,8 @@ import com.example.lolbet.R
 import com.example.lolbet.data.Bet
 import com.example.lolbet.data.BetForEnum
 import com.example.lolbet.databinding.ItemLiveBetBinding
+import com.example.lolbet.utils.DateHelper
+import androidx.core.graphics.toColorInt
 
 class BetAdapter(private var bets: List<Bet>) : RecyclerView.Adapter<BetAdapter.BetViewHolder>() {
 
@@ -25,37 +28,65 @@ class BetAdapter(private var bets: List<Bet>) : RecyclerView.Adapter<BetAdapter.
 
         with(holder.binding) {
             // images
-            if (bet.teamA !== null && bet.teamB !== null) {
-                sivPlayerAvatar.visibility = View.GONE
-                imgTeamA.visibility = View.VISIBLE
-                imgTeamB.visibility = View.VISIBLE
-                tvVs.visibility = View.VISIBLE
-            } else {
-                sivPlayerAvatar.visibility = View.VISIBLE
-                imgTeamA.visibility = View.GONE
-                imgTeamB.visibility = View.GONE
-                tvVs.visibility = View.GONE
-            }
+//            if (bet.teamA !== null && bet.teamB !== null) {
+//                sivPlayerAvatar.visibility = View.GONE
+//                imgTeamA.visibility = View.VISIBLE
+//                imgTeamB.visibility = View.VISIBLE
+//                tvVs.visibility = View.VISIBLE
+//            } else {
+//                sivPlayerAvatar.visibility = View.VISIBLE
+//                imgTeamA.visibility = View.GONE
+//                imgTeamB.visibility = View.GONE
+//                tvVs.visibility = View.GONE
+//            }
+            // Championship + date
+            val formattedDate = DateHelper.formatBetDate(bet.date)
+            val secondParam = bet.championship ?: bet.player
+            tvEventTitle.text = context.getString(
+                R.string.txt_bet_championship_or_player_and_date,
+                formattedDate,
+                secondParam
+            )
             // bet for
+            // --- ÉQUIPE A ---
+            val isVotedA = bet.hasBetFor == BetForEnum.TEAM_A_WINNING
+            // Visibilité du check et fond avec bordure
+            imgCheckA.visibility = if (isVotedA) View.VISIBLE else View.GONE
+            // Couleur du texte : Cyan si voté, votre Bleu #3F51B5FF sinon
+            tvVotesA.setTextColor(if (isVotedA) "#00FFFF".toColorInt() else "#3F51B5FF".toColorInt())
+
+            // --- ÉQUIPE B ---
+            val isVotedB = bet.hasBetFor == BetForEnum.TEAM_B_WINNING
+            // Visibilité du check et fond avec bordure
+            imgCheckB.visibility = if (isVotedB) View.VISIBLE else View.GONE
+            // Couleur du texte : Cyan si voté, votre Bleu #3F51B5FF sinon
+            tvVotesB.setTextColor(if (isVotedB) "#00FFFF".toColorInt() else "#3F51B5FF".toColorInt())
+
             when (bet.hasBetFor) {
-                BetForEnum.TEAM_A_WINNING -> {
-                    tvBetStatus.text = context.getString(R.string.txt_bet_for, bet.teamA)
+                BetForEnum.TEAM_A_WINNING, BetForEnum.TEAM_B_WINNING -> {
+                    // Affichage pour les équipes
+                    areaVoteA.visibility = View.VISIBLE
+                    areaVoteB.visibility = View.VISIBLE
+                    flVs.visibility = View.VISIBLE
+                    sivPlayerAvatar.visibility = View.GONE
+
+                    val teamName = if (bet.hasBetFor == BetForEnum.TEAM_A_WINNING) bet.teamA else bet.teamB
+                    tvBetStatus.text = context.getString(R.string.txt_bet_for, teamName)
                 }
-                BetForEnum.TEAM_B_WINNING -> {
-                    tvBetStatus.text = context.getString(R.string.txt_bet_for, bet.teamB)
-                }
-                BetForEnum.PLAYER_WINNING -> {
-                    tvBetStatus.text = context.getString(R.string.txt_bet_for, context.getString(R.string.txt_win))
-                }
-                BetForEnum.PLAYER_LOSING -> {
-                    tvBetStatus.text = context.getString(R.string.txt_bet_for, context.getString(R.string.txt_lose))
+
+                BetForEnum.PLAYER_WINNING, BetForEnum.PLAYER_LOSING -> {
+                    // On cache tout ce qui concerne les équipes
+                    areaVoteA.visibility = View.GONE
+                    areaVoteB.visibility = View.GONE
+                    flVs.visibility = View.GONE
+
+                    // On affiche l'avatar du joueur
+                    sivPlayerAvatar.visibility = View.VISIBLE
+
+                    val statusRes = if (bet.hasBetFor == BetForEnum.PLAYER_WINNING) R.string.txt_win else R.string.txt_lose
+                    tvBetStatus.text = context.getString(R.string.txt_bet_for, context.getString(statusRes))
                 }
             }
-//            tvTeam1.text = bet.team1
-//            tvTeam2.text = bet.team2
-//            tvAmount.text = "${bet.amount} €"
-//            tvStatus.text = bet.status.name
-//            tvBetStatus.text = getString(R.string.txt_level, user.level)
         }
     }
 

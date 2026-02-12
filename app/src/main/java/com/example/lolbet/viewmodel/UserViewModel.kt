@@ -77,7 +77,8 @@ class UserViewModel: ViewModel() {
                     44,
                     BetStatusEnum.PENDING,
                     "06/02/2026 12:00:00",
-                    BetForEnum.TEAM_A_WINNING
+                    BetForEnum.TEAM_A_WINNING,
+                    "LEC"
                 ),
                 Bet(2,
                     null,
@@ -87,7 +88,8 @@ class UserViewModel: ViewModel() {
                     23,
                     BetStatusEnum.PENDING,
                     "07/02/2026 12:00:00",
-                    BetForEnum.PLAYER_WINNING
+                    BetForEnum.PLAYER_WINNING,
+                    null
                 ),
                 Bet(3,
                     "G2 ESPORT",
@@ -97,7 +99,8 @@ class UserViewModel: ViewModel() {
                     58,
                     BetStatusEnum.PENDING,
                     "08/02/2026 12:00:00",
-                    BetForEnum.TEAM_B_WINNING
+                    BetForEnum.TEAM_B_WINNING,
+                    "LEC"
                 ),
                 Bet(4,
                     "G2 ESPORT",
@@ -107,7 +110,8 @@ class UserViewModel: ViewModel() {
                     422,
                     BetStatusEnum.WON,
                     "06/02/2026 15:00:00",
-                    BetForEnum.TEAM_A_WINNING
+                    BetForEnum.TEAM_A_WINNING,
+                    "LEC"
                 ),
                 Bet(5,
                     null,
@@ -117,7 +121,8 @@ class UserViewModel: ViewModel() {
                     888,
                     BetStatusEnum.LOST,
                     "06/02/2026 17:00:00",
-                    BetForEnum.PLAYER_LOSING
+                    BetForEnum.PLAYER_LOSING,
+                    null
                 ),
             )
         )

@@ -10,4 +10,5 @@ data class Bet(
     val status: BetStatusEnum,
     val date: String,
     val hasBetFor: BetForEnum = BetForEnum.PLAYER_LOSING,
+    val championship: String?
 )

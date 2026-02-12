@@ -31,6 +31,7 @@
     <string name="txt_bet_for">● Voté %1$s</string>
     <string name="txt_win">Gagner</string>
     <string name="txt_lose">Perte</string>
+    <string name="txt_bet_championship_or_player_and_date">%1$s - %2$s</string>
     <!-- BOUTONS -->
     <string name="btn_create_account">S\'inscrire</string>
     <string name="btn_login">Se connecter</string>

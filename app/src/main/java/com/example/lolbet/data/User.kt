@@ -11,4 +11,12 @@ data class User(
     val rps: Int,
     val level: Int,
     val bets: List<Bet> = emptyList(),
-)
+) {
+    fun getPendingBetsSorted() = bets
+        .filter { it.status == BetStatusEnum.PENDING }
+        .sortedByDescending { it.date }
+
+    fun getLastNonPendingBet() = bets
+        .filter { it.status != BetStatusEnum.PENDING }
+        .maxByOrNull { it.date }
+}

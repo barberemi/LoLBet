@@ -39,25 +39,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/sivPlayerAvatar"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="20dp"
-            android:padding="8dp"
-            android:scaleType="centerCrop"
-            app:strokeColor="#FFFFFF"
-            app:strokeWidth="2dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/CircleImageStyle"
-            app:srcCompat="@drawable/xadxxx" />
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layoutTeams"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="10dp"
             app:layout_constraintTop_toBottomOf="@id/tvEventTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -65,36 +51,12 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/areaVoteA"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:background="?attr/selectableItemBackground"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/flVs"
+                app:layout_constraintEnd_toStartOf="@+id/sivPlayerAvatar"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/imgTeamA"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/logo_g2" />
-
-                <ImageView
-                    android:id="@+id/imgCheckA"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/bg_white_circle_subtle"
-                    android:src="@drawable/ic_check_circle"
-                    android:visibility="visible"
-                    app:tint="#4CAF50"
-                    android:elevation="2dp"
-                    app:layout_constraintTop_toTopOf="@id/imgTeamA"
-                    app:layout_constraintBottom_toTopOf="@id/imgTeamA"
-                    app:layout_constraintStart_toEndOf="@id/imgTeamA"
-                    app:layout_constraintEnd_toEndOf="@id/imgTeamA" />
 
                 <TextView
                     android:id="@+id/tvTeamNameA"
@@ -104,9 +66,24 @@
                     android:textColor="#FFFFFF"
                     android:textSize="12sp"
                     android:textStyle="bold"
+                    android:paddingStart="5dp"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:layout_constraintBottom_toTopOf="@+id/tvVotesA"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/imgTeamA" />
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgCheckA"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:background="@drawable/bg_white_circle_subtle"
+                    android:src="@drawable/ic_check_circle"
+                    app:tint="#4CAF50"
+                    android:elevation="2dp"
+                    app:layout_constraintTop_toTopOf="@id/tvTeamNameA"
+                    app:layout_constraintBottom_toBottomOf="@id/tvTeamNameA"
+                    app:layout_constraintEnd_toStartOf="@+id/tvTeamNameA" />
 
                 <TextView
                     android:id="@+id/tvVotesA"
@@ -115,63 +92,36 @@
                     android:text="@string/txt_nb_votes"
                     android:textColor="#00FFFF"
                     android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvTeamNameA" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <FrameLayout
-                android:id="@+id/flVs"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:background="@drawable/bg_center_vs"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/sivPlayerAvatar"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:padding="8dp"
+                android:scaleType="centerCrop"
+                app:strokeColor="#FFFFFF"
+                app:strokeWidth="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/tvVs"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="VS"
-                    android:textColor="#00FFFF" />
-            </FrameLayout>
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/CircleImageStyle"
+                app:srcCompat="@drawable/xadxxx" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/areaVoteB"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:background="?attr/selectableItemBackground"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/flVs"
+                app:layout_constraintStart_toEndOf="@id/sivPlayerAvatar"
                 app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/imgTeamB"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/logo_fnc" />
-
-                <ImageView
-                    android:id="@+id/imgCheckB"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/bg_white_circle_subtle"
-                    android:src="@drawable/ic_check_circle"
-                    app:tint="#4CAF50"
-                    android:elevation="2dp"
-                    app:layout_constraintTop_toTopOf="@id/imgTeamB"
-                    app:layout_constraintBottom_toTopOf="@id/imgTeamB"
-                    app:layout_constraintStart_toEndOf="@id/imgTeamB"
-                    app:layout_constraintEnd_toEndOf="@id/imgTeamB" />
 
                 <TextView
                     android:id="@+id/tvTeamNameB"
@@ -181,9 +131,24 @@
                     android:textColor="#FFFFFF"
                     android:textSize="12sp"
                     android:textStyle="bold"
+                    android:paddingStart="5dp"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:layout_constraintBottom_toTopOf="@+id/tvVotesB"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/imgTeamB" />
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgCheckB"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:background="@drawable/bg_white_circle_subtle"
+                    android:src="@drawable/ic_check_circle"
+                    app:tint="#4CAF50"
+                    android:elevation="2dp"
+                    app:layout_constraintTop_toTopOf="@id/tvTeamNameB"
+                    app:layout_constraintBottom_toBottomOf="@id/tvTeamNameB"
+                    app:layout_constraintEnd_toStartOf="@+id/tvTeamNameB"/>
 
                 <TextView
                     android:id="@+id/tvVotesB"
@@ -192,6 +157,7 @@
                     android:text="@string/txt_nb_votes"
                     android:textColor="#00FFFF"
                     android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvTeamNameB" />

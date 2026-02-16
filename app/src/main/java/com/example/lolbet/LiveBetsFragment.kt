@@ -40,7 +40,7 @@ class LiveBetsFragment : Fragment() {
 
         // 2. Observer les données
         userViewModel.userData.observe(viewLifecycleOwner) { user ->
-            val pendingBets = userViewModel.getPendingBetsSorted(user)
+            val pendingBets = user.getPendingBetsSorted()
             if (pendingBets.isEmpty()) {
                 binding.tvNoBets.visibility = View.VISIBLE
                 binding.rvLiveBets.visibility = View.GONE

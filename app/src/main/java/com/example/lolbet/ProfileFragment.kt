@@ -61,7 +61,7 @@ class ProfileFragment : Fragment() {
                 binding.tvUserwinrate.text = rateFormatted
             }
             // arrow winrate
-            val lastNonPendingBet = userViewModel.getLastNonPendingBet(user)
+            val lastNonPendingBet = user.getLastNonPendingBet()
             val arrowResId: Int
             val colorResId: Int
             when (lastNonPendingBet?.status) {

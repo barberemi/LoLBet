@@ -1,6 +1,6 @@
 package com.example.lolbet.adapter
 
-import android.graphics.Color
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,25 +9,64 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.lolbet.R
 import com.example.lolbet.data.Bet
 import com.example.lolbet.data.BetForEnum
-import com.example.lolbet.databinding.ItemLiveBetBinding
 import com.example.lolbet.utils.DateHelper
 import androidx.core.graphics.toColorInt
+import com.example.lolbet.databinding.ItemLiveBetPlayerBinding
+import com.example.lolbet.databinding.ItemLiveBetTeamBinding
 
-class BetAdapter(private var bets: List<Bet>) : RecyclerView.Adapter<BetAdapter.BetViewHolder>() {
-
-    class BetViewHolder(val binding: ItemLiveBetBinding) : RecyclerView.ViewHolder(binding.root)
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BetViewHolder {
-        val binding = ItemLiveBetBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return BetViewHolder(binding)
+class BetAdapter(private var bets: List<Bet>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    companion object {
+        private const val TYPE_TEAM = 0
+        private const val TYPE_PLAYER = 1
     }
 
-    override fun onBindViewHolder(holder: BetViewHolder, position: Int) {
-        val bet = bets[position]
-        val context = holder.binding.root.context
+    // ViewHolder pour les Teams
+    class TeamViewHolder(val binding: ItemLiveBetTeamBinding) : RecyclerView.ViewHolder(binding.root)
 
-        with(holder.binding) {
-            // Championship + date
+    // ViewHolder pour les Players
+    class PlayerViewHolder(val binding: ItemLiveBetPlayerBinding) : RecyclerView.ViewHolder(binding.root)
+
+    override fun getItemViewType(position: Int): Int {
+        val bet = bets[position]
+        // On détermine le type selon ton Enum ou la présence d'un nom de joueur
+        return if (bet.hasBetFor == BetForEnum.PLAYER_WINNING || bet.hasBetFor == BetForEnum.PLAYER_LOSING) {
+            TYPE_PLAYER
+        } else {
+            TYPE_TEAM
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        return when (viewType) {
+            TYPE_PLAYER -> {
+                val binding = ItemLiveBetPlayerBinding.inflate(inflater, parent, false)
+                PlayerViewHolder(binding)
+            }
+            else -> {
+                val binding = ItemLiveBetTeamBinding.inflate(inflater, parent, false)
+                TeamViewHolder(binding)
+            }
+        }
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val bet = bets[position]
+        val context = holder.itemView.context
+
+        when (holder) {
+            is TeamViewHolder -> {
+                bindTeamBet(holder.binding, bet, context)
+            }
+            is PlayerViewHolder -> {
+                bindPlayerBet(holder.binding, bet, context)
+            }
+        }
+    }
+
+    private fun bindTeamBet(binding: ItemLiveBetTeamBinding, bet: Bet, context: Context) {
+        with(binding) {
+            // DATE
             val formattedDate = DateHelper.formatBetDate(bet.date)
             val secondParam = bet.championship ?: bet.player
             tvEventTitle.text = context.getString(
@@ -35,51 +74,63 @@ class BetAdapter(private var bets: List<Bet>) : RecyclerView.Adapter<BetAdapter.
                 formattedDate,
                 secondParam
             )
-            // bet for
-            // --- ÉQUIPE A ---
+            // BET FOR
             val isVotedA = bet.hasBetFor == BetForEnum.TEAM_A_WINNING
-            // Visibilité du check et fond avec bordure
             imgCheckA.visibility = if (isVotedA) View.VISIBLE else View.GONE
-            // Couleur du texte : Cyan si voté, votre Bleu #3F51B5FF sinon
             tvVotesA.setTextColor(if (isVotedA) "#00FFFF".toColorInt() else "#3F51B5FF".toColorInt())
-            // --- ÉQUIPE B ---
+
             val isVotedB = bet.hasBetFor == BetForEnum.TEAM_B_WINNING
-            // Visibilité du check et fond avec bordure
             imgCheckB.visibility = if (isVotedB) View.VISIBLE else View.GONE
-            // Couleur du texte : Cyan si voté, votre Bleu #3F51B5FF sinon
             tvVotesB.setTextColor(if (isVotedB) "#00FFFF".toColorInt() else "#3F51B5FF".toColorInt())
-            when (bet.hasBetFor) {
-                BetForEnum.TEAM_A_WINNING, BetForEnum.TEAM_B_WINNING -> {
-                    // Affichage pour les équipes
-                    areaVoteA.visibility = View.VISIBLE
-                    areaVoteB.visibility = View.VISIBLE
-                    flVs.visibility = View.VISIBLE
-                    sivPlayerAvatar.visibility = View.GONE
-                    tvVotesA.text = context.getString(R.string.txt_nb_votes, bet.nbWinningBets)
-                    tvVotesB.text = context.getString(R.string.txt_nb_votes, bet.nbLosingBets)
 
-                    val teamName = if (bet.hasBetFor == BetForEnum.TEAM_A_WINNING) bet.teamA?.name else bet.teamB?.name
-                    tvBetStatus.text = context.getString(R.string.txt_bet_for, teamName)
+            val teamName = if (isVotedA) bet.teamA?.name else bet.teamB?.name
+            tvBetStatus.text = context.getString(R.string.txt_bet_for, teamName)
 
-                    if (bet.teamA != null && bet.teamB != null) {
-                        imgTeamA.setImageResource(bet.teamA.logo)
-                        imgTeamB.setImageResource(bet.teamB.logo)
-                        tvTeamNameA.text = bet.teamA.name
-                        tvTeamNameB.text = bet.teamB.name
-                    }
-                }
-                BetForEnum.PLAYER_WINNING, BetForEnum.PLAYER_LOSING -> {
-                    // On cache tout ce qui concerne les équipes
-                    areaVoteA.visibility = View.GONE
-                    areaVoteB.visibility = View.GONE
-                    flVs.visibility = View.GONE
+            // NB BETS
+            tvVotesA.text = context.getString(R.string.txt_nb_votes, bet.nbWinningBets)
+            tvVotesB.text = context.getString(R.string.txt_nb_votes, bet.nbLosingBets)
 
-                    // On affiche l'avatar du joueur
-                    sivPlayerAvatar.visibility = View.VISIBLE
+            // LOGO & TEAM NAMES
+            if (bet.teamA != null && bet.teamB != null) {
+                imgTeamA.setImageResource(bet.teamA.logo)
+                imgTeamB.setImageResource(bet.teamB.logo)
+                tvTeamNameA.text = bet.teamA.name
+                tvTeamNameB.text = bet.teamB.name
+            }
+        }
+    }
 
-                    val statusRes = if (bet.hasBetFor == BetForEnum.PLAYER_WINNING) R.string.txt_win else R.string.txt_lose
-                    tvBetStatus.text = context.getString(R.string.txt_bet_for, context.getString(statusRes))
-                }
+    private fun bindPlayerBet(binding: ItemLiveBetPlayerBinding, bet: Bet, context: Context) {
+        with(binding) {
+            // DATE
+            val formattedDate = DateHelper.formatBetDate(bet.date)
+            val secondParam = bet.championship ?: bet.player
+            tvEventTitle.text = context.getString(
+                R.string.txt_bet_championship_or_player_and_date,
+                formattedDate,
+                secondParam
+            )
+            // BET FOR
+            val isVotedA = bet.hasBetFor == BetForEnum.PLAYER_WINNING
+            imgCheckA.visibility = if (isVotedA) View.VISIBLE else View.GONE
+            tvVotesA.setTextColor(if (isVotedA) "#00FFFF".toColorInt() else "#3F51B5FF".toColorInt())
+
+            val isVotedB = bet.hasBetFor == BetForEnum.PLAYER_LOSING
+            imgCheckB.visibility = if (isVotedB) View.VISIBLE else View.GONE
+            tvVotesB.setTextColor(if (isVotedB) "#00FFFF".toColorInt() else "#3F51B5FF".toColorInt())
+
+            val statusRes = if (isVotedA) R.string.txt_win else R.string.txt_lose
+            tvBetStatus.text = context.getString(R.string.txt_bet_for, context.getString(statusRes))
+
+            // NB BETS
+            tvVotesA.text = context.getString(R.string.txt_nb_votes, bet.nbWinningBets)
+            tvVotesB.text = context.getString(R.string.txt_nb_votes, bet.nbLosingBets)
+
+            // LOGO & TEAM NAMES
+            if (bet.player != null) {
+                sivPlayerAvatar.setImageResource(R.drawable.xadxxx)
+                tvTeamNameA.text = context.getString(R.string.txt_win)
+                tvTeamNameB.text = context.getString(R.string.txt_lose)
             }
         }
     }

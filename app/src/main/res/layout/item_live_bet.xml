@@ -80,7 +80,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/g2_esport" />
+                    app:srcCompat="@drawable/logo_g2" />
 
                 <ImageView
                     android:id="@+id/imgCheckA"
@@ -100,7 +100,7 @@
                     android:id="@+id/tvTeamNameA"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="G2 ESPORTS"
+                    android:text="TeamA"
                     android:textColor="#FFFFFF"
                     android:textSize="12sp"
                     android:textStyle="bold"
@@ -112,7 +112,7 @@
                     android:id="@+id/tvVotesA"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="170 votes"
+                    android:text="@string/txt_nb_votes"
                     android:textColor="#00FFFF"
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -158,7 +158,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/fnatic" />
+                    app:srcCompat="@drawable/logo_fnc" />
 
                 <ImageView
                     android:id="@+id/imgCheckB"
@@ -177,7 +177,7 @@
                     android:id="@+id/tvTeamNameB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="FNC ESPORTS"
+                    android:text="TeamB"
                     android:textColor="#FFFFFF"
                     android:textSize="12sp"
                     android:textStyle="bold"
@@ -189,7 +189,7 @@
                     android:id="@+id/tvVotesB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="120 votes"
+                    android:text="@string/txt_nb_votes"
                     android:textColor="#00FFFF"
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"

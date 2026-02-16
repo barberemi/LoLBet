@@ -8,6 +8,14 @@
     <!-- SUB TITLES -->
     <string name="sub_title_create_account">Rejoignez-nous en quelques secondes</string>
     <string name="sub_title_login">Prêt à entrer dans l\'arène ?</string>
+    <!-- BOUTONS -->
+    <string name="btn_create_account">S\'inscrire</string>
+    <string name="btn_login">Se connecter</string>
+    <string name="btn_delete_account">Supprimer mon compte</string>
+    <!-- PLACEHOLDERS -->
+    <string name="placeholder_password">Mot de passe</string>
+    <string name="placeholder_email">Email</string>
+    <string name="placeholder_search_player">Nom du joueur (ex: Faker…)</string>
     <!-- TEXTES -->
     <string name="txt_already_account">Déjà un compte ?</string>
     <string name="txt_login">Connectez-vous</string>
@@ -32,13 +40,5 @@
     <string name="txt_win">Gagner</string>
     <string name="txt_lose">Perte</string>
     <string name="txt_bet_championship_or_player_and_date">%1$s - %2$s</string>
-    <!-- BOUTONS -->
-    <string name="btn_create_account">S\'inscrire</string>
-    <string name="btn_login">Se connecter</string>
-    <string name="btn_delete_account">Supprimer mon compte</string>
-    <!-- PLACEHOLDERS -->
-    <string name="placeholder_password">Mot de passe</string>
-    <string name="placeholder_email">Email</string>
-    <string name="placeholder_search_player">Nom du joueur (ex: Faker…)</string>
-    <!-- OTHERS -->
+    <string name="txt_nb_votes">%1$d votes</string>
 </resources>

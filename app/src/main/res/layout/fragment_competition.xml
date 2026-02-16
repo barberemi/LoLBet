@@ -147,7 +147,7 @@
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                app:srcCompat="@drawable/g2_esport" />
+                                app:srcCompat="@drawable/logo_g2" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -193,7 +193,7 @@
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                app:srcCompat="@drawable/fnatic" />
+                                app:srcCompat="@drawable/logo_fnc" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -239,7 +239,7 @@
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                app:srcCompat="@drawable/g2_esport" />
+                                app:srcCompat="@drawable/logo_g2" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -285,7 +285,7 @@
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                app:srcCompat="@drawable/fnatic" />
+                                app:srcCompat="@drawable/logo_fnc" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -331,7 +331,7 @@
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                app:srcCompat="@drawable/g2_esport" />
+                                app:srcCompat="@drawable/logo_g2" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -377,7 +377,7 @@
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                app:srcCompat="@drawable/fnatic" />
+                                app:srcCompat="@drawable/logo_fnc" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -432,7 +432,7 @@
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                app:srcCompat="@drawable/g2_esport" />
+                                app:srcCompat="@drawable/logo_g2" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -478,7 +478,7 @@
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                app:srcCompat="@drawable/fnatic" />
+                                app:srcCompat="@drawable/logo_fnc" />
 
                             <TextView
                                 android:layout_width="wrap_content"

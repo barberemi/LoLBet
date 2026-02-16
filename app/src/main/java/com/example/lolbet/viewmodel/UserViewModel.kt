@@ -8,6 +8,7 @@ import com.example.lolbet.data.BetForEnum
 import com.example.lolbet.data.BetStatusEnum
 import com.example.lolbet.data.Rank
 import com.example.lolbet.data.User
+import com.example.lolbet.repository.TeamRepository
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -70,13 +71,13 @@ class UserViewModel: ViewModel() {
             level = 5,
             bets = listOf(
                 Bet(1,
-                    "G2 ESPORT",
-                    "FNATICS",
+                    TeamRepository.getTeamByInitials("FNC"),
+                    TeamRepository.getTeamByInitials("G2"),
                     null,
                     100,
                     44,
                     BetStatusEnum.PENDING,
-                    "06/02/2026 12:00:00",
+                    1738677600000L,
                     BetForEnum.TEAM_A_WINNING,
                     "LEC"
                 ),
@@ -87,29 +88,29 @@ class UserViewModel: ViewModel() {
                     200,
                     23,
                     BetStatusEnum.PENDING,
-                    "07/02/2026 12:00:00",
+                    1738764000000L,
                     BetForEnum.PLAYER_WINNING,
                     null
                 ),
                 Bet(3,
-                    "G2 ESPORT",
-                    "FNATICS",
+                    TeamRepository.getTeamByInitials("G2"),
+                    TeamRepository.getTeamByInitials("T1"),
                     null,
                     300,
                     58,
                     BetStatusEnum.PENDING,
-                    "08/02/2026 12:00:00",
+                    1738839600000L,
                     BetForEnum.TEAM_B_WINNING,
                     "LEC"
                 ),
                 Bet(4,
-                    "G2 ESPORT",
-                    "FNATICS",
+                    TeamRepository.getTeamByInitials("FNC"),
+                    TeamRepository.getTeamByInitials("T1"),
                     null,
                     10,
                     422,
                     BetStatusEnum.WON,
-                    "06/02/2026 15:00:00",
+                    1738850400000L,
                     BetForEnum.TEAM_A_WINNING,
                     "LEC"
                 ),
@@ -120,25 +121,45 @@ class UserViewModel: ViewModel() {
                     55,
                     888,
                     BetStatusEnum.LOST,
-                    "06/02/2026 17:00:00",
+                    1738857600000L,
                     BetForEnum.PLAYER_LOSING,
                     null
+                ),
+                Bet(6,
+                    TeamRepository.getTeamByInitials("G2"),
+                    TeamRepository.getTeamByInitials("T1"),
+                    null,
+                    10,
+                    422,
+                    BetStatusEnum.PENDING,
+                    1739703600000L,
+                    BetForEnum.TEAM_B_WINNING,
+                    "LEC"
+                ),
+                Bet(7,
+                    TeamRepository.getTeamByInitials("FNC"),
+                    TeamRepository.getTeamByInitials("T1"),
+                    null,
+                    10,
+                    422,
+                    BetStatusEnum.PENDING,
+                    1739012400000L,
+                    BetForEnum.TEAM_B_WINNING,
+                    "LEC"
                 ),
             )
         )
     }
 
+    fun getPendingBetsSorted(user: User): List<Bet> {
+        return user.bets
+            .filter { it.status == BetStatusEnum.PENDING }
+            .sortedByDescending { it.date }
+    }
     fun getLastNonPendingBet(user: User): Bet? {
         return user.bets
             .filter { it.status != BetStatusEnum.PENDING }
-            .maxByOrNull { bet ->
-                try {
-                    val date: Date = betDateFormatter.parse(bet.date) ?: Date(0)
-                    date.time
-                } catch (e: Exception) {
-                    0L
-                }
-            }
+            .maxByOrNull { it.date }
     }
 
     fun getRank(rps: Int): Rank? {

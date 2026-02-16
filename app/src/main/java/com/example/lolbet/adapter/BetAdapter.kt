@@ -27,18 +27,6 @@ class BetAdapter(private var bets: List<Bet>) : RecyclerView.Adapter<BetAdapter.
         val context = holder.binding.root.context
 
         with(holder.binding) {
-            // images
-//            if (bet.teamA !== null && bet.teamB !== null) {
-//                sivPlayerAvatar.visibility = View.GONE
-//                imgTeamA.visibility = View.VISIBLE
-//                imgTeamB.visibility = View.VISIBLE
-//                tvVs.visibility = View.VISIBLE
-//            } else {
-//                sivPlayerAvatar.visibility = View.VISIBLE
-//                imgTeamA.visibility = View.GONE
-//                imgTeamB.visibility = View.GONE
-//                tvVs.visibility = View.GONE
-//            }
             // Championship + date
             val formattedDate = DateHelper.formatBetDate(bet.date)
             val secondParam = bet.championship ?: bet.player
@@ -54,14 +42,12 @@ class BetAdapter(private var bets: List<Bet>) : RecyclerView.Adapter<BetAdapter.
             imgCheckA.visibility = if (isVotedA) View.VISIBLE else View.GONE
             // Couleur du texte : Cyan si voté, votre Bleu #3F51B5FF sinon
             tvVotesA.setTextColor(if (isVotedA) "#00FFFF".toColorInt() else "#3F51B5FF".toColorInt())
-
             // --- ÉQUIPE B ---
             val isVotedB = bet.hasBetFor == BetForEnum.TEAM_B_WINNING
             // Visibilité du check et fond avec bordure
             imgCheckB.visibility = if (isVotedB) View.VISIBLE else View.GONE
             // Couleur du texte : Cyan si voté, votre Bleu #3F51B5FF sinon
             tvVotesB.setTextColor(if (isVotedB) "#00FFFF".toColorInt() else "#3F51B5FF".toColorInt())
-
             when (bet.hasBetFor) {
                 BetForEnum.TEAM_A_WINNING, BetForEnum.TEAM_B_WINNING -> {
                     // Affichage pour les équipes
@@ -69,11 +55,19 @@ class BetAdapter(private var bets: List<Bet>) : RecyclerView.Adapter<BetAdapter.
                     areaVoteB.visibility = View.VISIBLE
                     flVs.visibility = View.VISIBLE
                     sivPlayerAvatar.visibility = View.GONE
+                    tvVotesA.text = context.getString(R.string.txt_nb_votes, bet.nbWinningBets)
+                    tvVotesB.text = context.getString(R.string.txt_nb_votes, bet.nbLosingBets)
 
-                    val teamName = if (bet.hasBetFor == BetForEnum.TEAM_A_WINNING) bet.teamA else bet.teamB
+                    val teamName = if (bet.hasBetFor == BetForEnum.TEAM_A_WINNING) bet.teamA?.name else bet.teamB?.name
                     tvBetStatus.text = context.getString(R.string.txt_bet_for, teamName)
-                }
 
+                    if (bet.teamA != null && bet.teamB != null) {
+                        imgTeamA.setImageResource(bet.teamA.logo)
+                        imgTeamB.setImageResource(bet.teamB.logo)
+                        tvTeamNameA.text = bet.teamA.name
+                        tvTeamNameB.text = bet.teamB.name
+                    }
+                }
                 BetForEnum.PLAYER_WINNING, BetForEnum.PLAYER_LOSING -> {
                     // On cache tout ce qui concerne les équipes
                     areaVoteA.visibility = View.GONE

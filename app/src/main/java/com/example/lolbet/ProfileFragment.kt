@@ -34,7 +34,6 @@ class ProfileFragment : Fragment() {
             binding.tvUsername.text = user.name
             binding.tvUsernbBetWin.text = user.nbBetWin.toString()
             binding.tvUsernbBetLost.text = user.nbBetLost.toString()
-            binding.tvUserlevel.text = getString(R.string.txt_level, user.level)
             binding.tvUserrps.text = getString(R.string.txt_rps, user.rps)
             // rank
             binding.tvUserrank.text = rank?.name ?: "Unranked"

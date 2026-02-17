@@ -23,8 +23,5 @@ object TeamRepository {
         return teamMap[initials]
     }
 
-    /**
-     * Récupère la liste complètes des équipes.
-     */
     fun getAllTeams(): List<Team> = teams
 }

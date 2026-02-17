@@ -42,6 +42,11 @@ object RankRepository {
 
     fun getAllRanks(): List<Rank> = ranks
 
+    fun getRankByName(name: String): Rank {
+        return ranks.firstOrNull { it.name.equals(name, ignoreCase = true) }
+            ?: ranks.first()
+    }
+
     fun getRankByRps(rps: Int): Rank? {
         val eligibleRanks = ranks.filter { it.minRps <= rps }
         return eligibleRanks.maxByOrNull { it.minRps } ?: ranks.minByOrNull { it.minRps }

@@ -37,8 +37,8 @@
     <string name="txt_rps_next_rank">Prochain rang à %1$d pts</string>
     <string name="txt_no_live_bets">Aucun pari en cours</string>
     <string name="txt_bet_for">● Voté %1$s</string>
-    <string name="txt_win">Gagner</string>
-    <string name="txt_lose">Perdre</string>
+    <string name="txt_win_title">Gagner</string>
+    <string name="txt_lose_title">Perdre</string>
     <string name="txt_bet_championship_or_player_and_date">%1$s - %2$s</string>
     <string name="txt_nb_votes">%1$d votes</string>
 </resources>

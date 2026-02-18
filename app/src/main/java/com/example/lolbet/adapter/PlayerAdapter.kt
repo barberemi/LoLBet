@@ -1,6 +1,9 @@
 package com.example.lolbet.adapter
 
 import android.content.Context
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.RelativeSizeSpan
 import android.transition.TransitionManager
 import android.view.LayoutInflater
 import android.view.View
@@ -82,6 +85,8 @@ class PlayerAdapter(
             }
 
             // --- Actions des boutons ---
+            btnVoteWin.text = getButtonText(context, R.string.txt_win_title,if (player.hasOnlineBet) player.nbWonBets else null)
+            btnVoteLose.text = getButtonText(context, R.string.txt_lose_title,if (player.hasOnlineBet) player.nbLostBets else null)
             btnVoteWin.setOnClickListener { /* Votre logique de vote vert */ }
             btnVoteLose.setOnClickListener { /* Votre logique de vote rouge */ }
         }
@@ -92,5 +97,35 @@ class PlayerAdapter(
     fun submitList(newPlayers: List<Player>) {
         players = newPlayers
         notifyDataSetChanged()
+    }
+
+    fun getButtonText(context: Context, text: Int, nbVotes: Int?): SpannableString {
+        val title = context.getString(text)
+        val fullText = if (nbVotes != null) {
+            val subtitle = "\n" + context.getString(R.string.txt_nb_votes, nbVotes)
+            title + subtitle
+        } else {
+            title
+        }
+
+        val spannable = SpannableString(fullText)
+
+        // Style pour la première ligne (Taille normale / Grande)
+        spannable.setSpan(
+            RelativeSizeSpan(1.2f), // 20% plus grand
+            0, title.length,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+        // Style pour la deuxième ligne (Taille plus petite)
+        if (nbVotes != null) {
+            spannable.setSpan(
+                RelativeSizeSpan(0.7f), // 30% plus petit
+                title.length, spannable.length,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+        }
+
+        return spannable
     }
 }

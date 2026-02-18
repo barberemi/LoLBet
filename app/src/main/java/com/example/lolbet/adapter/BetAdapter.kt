@@ -119,7 +119,7 @@ class BetAdapter(private var bets: List<Bet>) : RecyclerView.Adapter<RecyclerVie
             imgCheckB.visibility = if (isVotedB) View.VISIBLE else View.GONE
             tvVotesB.setTextColor(if (isVotedB) "#00FFFF".toColorInt() else "#3F51B5FF".toColorInt())
 
-            val statusRes = if (isVotedA) R.string.txt_win else R.string.txt_lose
+            val statusRes = if (isVotedA) R.string.txt_win_title else R.string.txt_lose_title
             tvBetStatus.text = context.getString(R.string.txt_bet_for, context.getString(statusRes))
 
             // NB BETS
@@ -129,8 +129,8 @@ class BetAdapter(private var bets: List<Bet>) : RecyclerView.Adapter<RecyclerVie
             // LOGO & TEAM NAMES
             if (bet.player != null) {
                 sivPlayerAvatar.setImageResource(R.drawable.xadxxx)
-                tvTeamNameA.text = context.getString(R.string.txt_win)
-                tvTeamNameB.text = context.getString(R.string.txt_lose)
+                tvTeamNameA.text = context.getString(R.string.txt_win_title)
+                tvTeamNameB.text = context.getString(R.string.txt_lose_title)
             }
         }
     }

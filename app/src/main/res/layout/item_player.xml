@@ -120,9 +120,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginEnd="6dp"
-                    android:text="@string/txt_win"
+                    android:text="btnVoteWin"
                     android:backgroundTint="#4CAF50"
                     app:cornerRadius="8dp"
+                    android:textAllCaps="false"
                     android:textColor="#FFFFFF" />
 
                 <com.google.android.material.button.MaterialButton
@@ -131,9 +132,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="6dp"
-                    android:text="@string/txt_lose"
+                    android:text="btnVoteLose"
                     android:backgroundTint="#F44336"
                     app:cornerRadius="8dp"
+                    android:textAllCaps="false"
                     android:textColor="#FFFFFF" />
             </LinearLayout>
         </LinearLayout>

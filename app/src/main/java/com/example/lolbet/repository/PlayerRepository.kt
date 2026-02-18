@@ -3,7 +3,7 @@ package com.example.lolbet.repository
 import com.example.lolbet.data.Player
 
 object PlayerRepository {
-    private val players = listOf<Player>(
+    private val players = mutableListOf<Player>(
         Player(123,
             "Faker",
             9999,
@@ -68,5 +68,17 @@ object PlayerRepository {
         return playerMap[name]
     }
 
-    fun getAllPlayers(): List<Player> = players // Todo : à garder pas trop gourmand ???
+    /**
+     * Remplace le joueur existant par sa version mise à jour
+     */
+    fun updatePlayer(updatedPlayer: Player) {
+        val index = players.indexOfFirst { it.id == updatedPlayer.id }
+
+        if (index != -1) {
+            // Maintenant, le compilateur autorise le '=' car 'players' est Mutable
+            players[index] = updatedPlayer
+        }
+    }
+
+    fun getAllPlayers(): List<Player> = players
 }

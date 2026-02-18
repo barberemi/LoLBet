@@ -7,8 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.lolbet.adapter.BetAdapter
-import com.example.lolbet.data.BetStatusEnum
+import com.example.lolbet.adapter.LiveBetAdapter
 import com.example.lolbet.databinding.FragmentLiveBetsBinding
 import com.example.lolbet.viewmodel.UserViewModel
 import kotlin.getValue
@@ -17,7 +16,7 @@ class LiveBetsFragment : Fragment() {
     private var _binding: FragmentLiveBetsBinding? = null
     private val binding get() = _binding!!
     private val userViewModel: UserViewModel by activityViewModels()
-    private lateinit var betAdapter: BetAdapter
+    private lateinit var liveBetAdapter: LiveBetAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,23 +31,23 @@ class LiveBetsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // 1. Configurer le RecyclerView
-        betAdapter = BetAdapter(emptyList())
+        liveBetAdapter = LiveBetAdapter(emptyList())
         binding.rvLiveBets.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = betAdapter
+            adapter = liveBetAdapter
         }
 
         // 2. Observer les données
         userViewModel.userData.observe(viewLifecycleOwner) { user ->
-            val pendingBets = user.getPendingBetsSorted()
+            val pendingBets = user.getPendingBetsSorted().toList()
             if (pendingBets.isEmpty()) {
                 binding.tvNoBets.visibility = View.VISIBLE
                 binding.rvLiveBets.visibility = View.GONE
             } else {
                 binding.tvNoBets.visibility = View.GONE
                 binding.rvLiveBets.visibility = View.VISIBLE
-                betAdapter.updateData(pendingBets)
             }
+            liveBetAdapter.updateData(pendingBets)
         }
     }
 
